@@ -4,7 +4,7 @@ import ContactsItem from '../ContactsItem/ContactsItem';
 import css from '../ContactsList/ContactsList.module.css';
 
 const ContactsList = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.filter);
 
   const filtredContacts = getFiltredContacts();

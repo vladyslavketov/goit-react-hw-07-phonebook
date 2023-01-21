@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addContacts } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsSlice';
 import css from '../ContactForm/ContactForm.module.css'
 
 export default function ContactForm() {
@@ -22,7 +22,7 @@ export default function ContactForm() {
       number: number.value,
     };
 
-    dispatch(addContacts(newContact));
+    dispatch(addContact(newContact));
     e.currentTarget.reset();
   };
 
