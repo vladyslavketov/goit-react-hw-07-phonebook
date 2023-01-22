@@ -1,13 +1,20 @@
 // import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchContacts } from "redux/contactsOperations";
 
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactsList from './ContactsList/ContactsList';
 
 export default function App() {
-  const contacts = useSelector(state => state.contacts);
-  const isShow = contacts.items.length > 0;
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items);
+  const isShow = contacts.length > 0;
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
       <div
